@@ -7,6 +7,10 @@ app.get("/", function(req,res){
    res.render("landing");
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.get("/search", function(req, res){
+   res.render("search");
+});
+
+module.exports = app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The BookSearch Server has started!");
 });
