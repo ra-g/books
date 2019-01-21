@@ -29,4 +29,13 @@ describe('Testing the routes', function(){
                 expect(response.text).to.contain('click here for more info...');
             })
     });
+    
+    it('should not return results for this query', function(){
+        return request(app)
+            .get('/books')
+            .query({ search: 'sdfdgrthrthrtghewgrefwerf' })
+            .then(function(response){
+                expect(response.text).to.contain('No match for your query.');
+            })
+    });
 });
