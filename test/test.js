@@ -20,4 +20,13 @@ describe('Testing the routes', function(){
                 expect(response.text).to.contain('Search for books');
             })
     });
+    
+    it('should return results for this query', function(){
+        return request(app)
+            .get('/books')
+            .query({ search: 'africa' })
+            .then(function(response){
+                expect(response.text).to.contain('click here for more info...');
+            })
+    });
 });
