@@ -1,10 +1,12 @@
 <% include partials/header %>
 
-    <h1>Search results</h1>
-    <h2><a href="/search">Click here to search again</a></h2>
-
+<div class="container">
+    <header class="jumbotron">
+        <div class="container"></div>
+            <h1>Search results</h1>
+            <a href="/search" class="btn btn-primary btn-large">Click here to search again</a>
+        </div>
     </header>
-    
     <% if (parsedBooks["totalItems"] > 0) { %>
         <div class="row">
             <% parsedBooks["items"].forEach(function(book) { %>
@@ -25,7 +27,7 @@
                 </div>
             <% }) %>
         </div>
-    <% } else { %>
+    <% } else{ %>
         <h3>No match for your query.</h3>
     <% } %>
 </div>
