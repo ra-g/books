@@ -12,4 +12,12 @@ describe('Testing the routes', function(){
                 assert.equal(response.status, 200)
             })
     });
+    
+    it('should return message on rendering /search', function(){
+        return request(app)
+            .get('/search')
+            .then(function(response){
+                expect(response.text).to.contain('Search for books');
+            })
+    });
 });

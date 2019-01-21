@@ -6,5 +6,7 @@ This application allows you to search for books. The application uses the [Googl
 * From each list item, you could navigate to more information about the book.
 
 ## Getting Started
+npm start
+npm test
 
 ## Running the tests

@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+    <h1>Search results</h1>
+    <h2><a href="/search">Click here to search again</a></h2>
+
+    </header>
+        <div class="row">
+            <% parsedBooks["items"].forEach(function(book) { %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h4><strong><%= book["volumeInfo"]["title"] %></strong></h4>
+                            <h4><%= book["volumeInfo"]["authors"] %></h4>
+                            <h5><%= book["volumeInfo"]["publisher"] %></h5>
+                            <p><a href=<%= book["volumeInfo"]["infoLink"] %> target="_blank">click here for more info...</a></p>
+                        </div>
+                        <img src="<%= book["volumeInfo"]["imageLinks"]["thumbnail"] %>" />
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+</div>
+
+<% include partials/footer %>
