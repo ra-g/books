@@ -1,14 +1,19 @@
-<% include partials/header %>
-
-<div class="container">
-    <header class="jumbotron">
-        <h1>Search for books</h1>
-    </header>
-    
-    <form action="/books" method="GET">
-        <input type="text" name="search" placeholder="type here..." required>
-        <button type="submit" class="btn btn-primary btn-large">Submit</button>
-    </form>
-</div>
-
-<% include partials/footer %>
+<!DOCTYPE html>
+<html>
+    <body>
+        <% include partials/header %>
+        
+        <div class="container">
+            <header class="jumbotron">
+                <h1>Search for books</h1>
+            </header>
+            
+            <form action="/books" method="GET">
+                <input type="text" name="search" placeholder="type here..." required>
+                <button type="submit" class="btn btn-primary btn-large">Submit</button>
+            </form>
+        </div>
+        
+        <% include partials/footer %>
+    </body>
+</html>

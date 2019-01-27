@@ -1,35 +1,38 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html>
+    <body>
+        <% include partials/header %>
 
-<div class="container">
-    <header class="jumbotron">
-        <div class="container"></div>
-            <h1>Search results</h1>
-            <a href="/search" class="btn btn-primary btn-large">Click here to search again</a>
-        </div>
-    </header>
-    <% if (parsedBooks["totalItems"] > 0) { %>
-        <div class="row">
-            <% parsedBooks["items"].forEach(function(book) { %>
-                <div class="col-md-3 col-sm-6">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h4><strong><%= book["volumeInfo"]["title"] %></strong></h4>
-                            <h4><%= book["volumeInfo"]["authors"] %></h4>
-                            <h5><%= book["volumeInfo"]["publisher"] %></h5>
-                            <p><a href=<%= book["volumeInfo"]["infoLink"] %> target="_blank">click here for more info...</a></p>
-                        </div>
-                        <% if (book["volumeInfo"].hasOwnProperty("imageLinks")) { %>
-                            <img src="<%= book["volumeInfo"]["imageLinks"]["thumbnail"] %>" />
-                        <% } else{ %>
-                            <h4><i>No picture available.</i></h4>
-                        <% } %>
-                    </div>
+        <div class="container">
+            <header class="jumbotron">
+                <div class="container">
+                    <h1>Search results</h1>
+                    <a href="/search" class="btn btn-primary btn-large">Click here to search again</a>
                 </div>
-            <% }) %>
+            </header>
+            <% if (parsedBooks["totalItems"] > 0) { %>
+                <div class="form-group">
+                    <% parsedBooks["items"].forEach(function(book) { %>
+                            <div class="thumbnail">
+                                <div class="caption">
+                                    <h4><strong><%= book["volumeInfo"]["title"] %></strong></h4>
+                                    <h4><%= book["volumeInfo"]["authors"] %></h4>
+                                    <h5><%= book["volumeInfo"]["publisher"] %></h5>
+                                    <p><a href=<%= book["volumeInfo"]["infoLink"] %> target="_blank">click here for more info...</a></p>
+                                </div>
+                                <% if (book["volumeInfo"].hasOwnProperty("imageLinks")) { %>
+                                    <img src="<%= book["volumeInfo"]["imageLinks"]["thumbnail"] %>" />
+                                <% } else{ %>
+                                    <h4><i>No picture available.</i></h4>
+                                <% } %>
+                            </div>
+                    <% }) %>
+                </div>
+            <% } else{ %>
+                <h3>No match for your query.</h3>
+            <% } %>
         </div>
-    <% } else{ %>
-        <h3>No match for your query.</h3>
-    <% } %>
-</div>
-
-<% include partials/footer %>
+        
+        <% include partials/footer %>
+    </body>
+</html>
