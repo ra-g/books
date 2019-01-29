@@ -38,4 +38,13 @@ describe('Testing the routes', function(){
                 expect(response.text).to.contain('No match for your query.');
             })
     });
+    
+    it('should return message for invalid query', function(){
+        return request(app)
+            .get('/books')
+            .query({ search: '###' })
+            .then(function(response){
+                expect(response.text).to.contain('Invalid query.');
+            })
+    });
 });
