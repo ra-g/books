@@ -36,13 +36,13 @@ app.get("/books", function(req, res){
                res.render("books", {preparedBooks: preparedBooks});
            }
            else {
-               res.render("notfound");
+               res.render("errors/notfound");
            }
        }
        else {
            console.log("error " + response.statusCode)
            console.log(body)
-           res.redirect("search")
+           res.render("errors/invalid")
        }
     });
 });
