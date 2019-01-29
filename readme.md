@@ -25,3 +25,4 @@ Performing validation on the results of a query that are received:
 
 ## Notes
 - The application uses the instructions found in the API [documentation](https://developers.google.com/books/docs/v1/using). Search sends an HTTP GET request to the specified URI.
+- The application runs on port 8080 locally.
