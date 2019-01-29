@@ -10,27 +10,19 @@
                     <a href="/search" class="btn btn-primary btn-large">Click here to search again</a>
                 </div>
             </header>
-            <% if (parsedBooks["totalItems"] > 0) { %>
-                <div class="form-group">
-                    <% parsedBooks["items"].forEach(function(book) { %>
-                            <div class="thumbnail">
-                                <div class="caption">
-                                    <h4><strong><%= book["volumeInfo"]["title"] %></strong></h4>
-                                    <h4><%= book["volumeInfo"]["authors"] %></h4>
-                                    <h5><%= book["volumeInfo"]["publisher"] %></h5>
-                                    <p><a href=<%= book["volumeInfo"]["infoLink"] %> target="_blank">click here for more info...</a></p>
-                                </div>
-                                <% if (book["volumeInfo"].hasOwnProperty("imageLinks")) { %>
-                                    <img src="<%= book["volumeInfo"]["imageLinks"]["thumbnail"] %>" />
-                                <% } else{ %>
-                                    <h4><i>No picture available.</i></h4>
-                                <% } %>
+            <div class="form-group">
+                <% preparedBooks.forEach(function(book) { %>
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h4><strong><%= book["title"] %></strong></h4>
+                                <h4><%= book["authors"] %></h4>
+                                <h5><%= book["publisher"] %></h5>
+                                <p><a href=<%= book["link"] %> target="_blank">click here for more info...</a></p>
                             </div>
-                    <% }) %>
-                </div>
-            <% } else{ %>
-                <h3>No match for your query.</h3>
-            <% } %>
+                            <img src="<%= book["image"] %>" alt="No picture available."/>
+                        </div>
+                <% }) %>
+            </div>
         </div>
         
         <% include partials/footer %>
