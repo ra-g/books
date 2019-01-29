@@ -40,7 +40,7 @@ app.get("/books", function(req, res){
            }
        }
        else {
-           console.log("error " + response.statusCode)
+           console.log("error")
            console.log(body)
            res.render("errors/invalid")
        }
